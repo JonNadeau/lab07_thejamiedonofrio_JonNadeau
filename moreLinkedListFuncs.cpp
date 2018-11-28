@@ -12,33 +12,43 @@ void addIntToEndOfList(LinkedList *list, int value) {
   // TODO:
   // (1) Allocate a new node.  p will point to it.
 
-  p = NULL; // THIS IS PLACE-HOLDER LINE OF CODE.  DELETE IT AND REPLACE IT.
-
+  p = new Node;; // THIS IS PLACE-HOLDER LINE OF CODE.  DELETE IT AND REPLACE IT.
+  p->data = value;
   // (2) Set p's data field to the value passed in
-  
+  p->next = NULL;
   // (3) Set p's next field to NULL
 
 
   if (list->head == NULL) {
-
+    list->head = p;
     // (4) Make both head and tail of this list point to p
-    
+    list->tail = p;
     
   } else {
 
     // Add p at the end of the list.   
 
     // (5) The current node at the tail? Make it point to p instead of NULL
-
+    list->tail->next = p;
     // (6) Make the tail of the list be p now.
-
+    list->tail = p;
   }
 
 }
 
 void addIntToStartOfList(LinkedList *list, int value) {
   assert(list!=NULL); // if list is NULL, we can do nothing.
+  Node *p = new Node;
+  p->data = value;
+  p->next = NULL;
 
+  if(list->head==NULL)
+	  list->head = p;
+
+  else{
+  	p->next = list->head;
+	list->head = p;
+  }
   // Add code for this.  
   // HINTS:
   //  You will need to allocate a new Node.
@@ -66,11 +76,12 @@ Node * pointerToMax(LinkedList *list) {
   //  so does not need to do error checking for these conditions.
   assert(list!=NULL);
   assert(list->head != NULL);
-
+  
+  Node *p 
   // TODO: Insert code here to calculate and return
   //   value of pointer to max element (first one if ties.)
 
-  return NULL; // STUB!  Replace this line with correct code
+  return p; // STUB!  Replace this line with correct code
 }
 
 // list: ptr to a linked list of Node (each with int data, and Node * next)
