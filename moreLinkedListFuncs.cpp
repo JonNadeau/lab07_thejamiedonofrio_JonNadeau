@@ -77,7 +77,19 @@ Node * pointerToMax(LinkedList *list) {
   assert(list!=NULL);
   assert(list->head != NULL);
   
-  Node *p 
+  Node *p = new Node;
+  p = list->head;
+  if(list->head->next==NULL){
+	return p;
+  }
+
+  Node *temp;
+  temp = p->next;
+  while(temp){
+  	if(temp->data > p->data)
+		p = temp;
+	temp = temp->next;
+  }
   // TODO: Insert code here to calculate and return
   //   value of pointer to max element (first one if ties.)
 
