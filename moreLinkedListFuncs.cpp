@@ -205,13 +205,21 @@ int smallestValue(LinkedList *list) {
 int sum(LinkedList * list) {
   // Code may assume that these assertions are true;
   //  so does not need to do error checking for these conditions.
-
+  int sum = 0;
   assert(list!=NULL);
 
+  Node *p;
+  p = list->head;
+
+  while (p != NULL)
+  {
+	sum += p->data;
+	p = p->next;
+  }
   // TODO: Insert code here to calculate and return
   //   sum of all values in list (0 if there are none).
 
-  return -42; // STUB!  Replace this line with correct code
+  return sum; // STUB!  Replace this line with correct code
 
 }
 
