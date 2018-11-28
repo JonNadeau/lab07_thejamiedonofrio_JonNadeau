@@ -111,12 +111,23 @@ Node * pointerToMin(LinkedList *list) {
 
   assert(list!=NULL);
   assert(list->head != NULL);
+  
+  Node *p = new Node;
+  p = list->head;
+  if(p->next==NULL)
+	  return p;
 
+  Node *temp = p->next;
+  while(temp){
+  	if(temp->data < p->data)
+		p = temp;
+	temp = temp->next;
+  }
   // TODO: Insert code here to calculate and return
   //   value of pointer to min element 
   //   (first one such value that occurs if there are ties.)
 
-  return NULL; // STUB!  Replace this line with correct code
+  return p; // STUB!  Replace this line with correct code
 
 }
 
@@ -132,11 +143,19 @@ int largestValue(LinkedList *list) {
 
   assert(list!=NULL);
   assert(list->head != NULL);
-
+  if(list->head->next == NULL)
+	  return list->head->data;
+  int x = list->head->data;
+  Node *temp = list->head->next;
+  while(temp){
+  	if(temp->data > x)
+		x = temp->data;
+	temp = temp->next;
+  }
   // TODO: Insert code here to calculate and return
   //   largest value in list (which may not be unique).
 
-  return -42; // STUB!  Replace this line with correct code
+  return x; // STUB!  Replace this line with correct code
 
 }
 
@@ -151,11 +170,20 @@ int smallestValue(LinkedList *list) {
 
   assert(list!=NULL);
   assert(list->head != NULL);
+  int x = list->head->data;
+  if(list->head->next == NULL)
+	  return x;
 
+  Node *temp = list->head->next;
+  while(temp){
+  	if(temp->data < x)
+		x = temp->data;
+  	temp = temp->next;
+  }
   // TODO: Insert code here to calculate and return
   //   smallest value in list (which may not be unique).
 
-  return -42; // STUB!  Replace this line with correct code
+  return x; // STUB!  Replace this line with correct code
 
 }
 
