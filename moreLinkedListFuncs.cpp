@@ -5,7 +5,7 @@
 
 
 void addIntToEndOfList(LinkedList *list, int value) {
-<<<<<<< HEAD
+
   assert(list!=NULL);
   Node *p;
 
@@ -22,7 +22,9 @@ void addIntToEndOfList(LinkedList *list, int value) {
   {
 	  list->tail->next = p;
 	  list->tail = p;
-=======
+  }
+}
+	/*
   assert(list!=NULL); // if list is NULL, we can do nothing.
 
   Node *p; // temporary pointer
@@ -52,7 +54,7 @@ void addIntToEndOfList(LinkedList *list, int value) {
     list->tail = p;
 >>>>>>> 52bb667017951c3035189828de36b987b1faff1a
   }
-}
+  */
 
 void addIntToStartOfList(LinkedList *list, int value) {
   assert(list!=NULL); // if list is NULL, we can do nothing.
@@ -60,7 +62,7 @@ void addIntToStartOfList(LinkedList *list, int value) {
   p->data = value;
   p->next = NULL;
 
-<<<<<<< HEAD
+/*<<<<<<< HEAD
   Node *p;
   p = new Node;
   p->data = value;
@@ -75,7 +77,7 @@ void addIntToStartOfList(LinkedList *list, int value) {
 	  list->head = p;
 	  //add p to beginning of list
 	  //
-=======
+=======*/
   if(list->head==NULL)
 	  list->head = p;
 
@@ -83,7 +85,7 @@ void addIntToStartOfList(LinkedList *list, int value) {
   	p->next = list->head;
 	list->head = p;
   }
->>>>>>> 52bb667017951c3035189828de36b987b1faff1a
+//>>>>>>> 52bb667017951c3035189828de36b987b1faff1a
   // Add code for this.  
   // HINTS:
   //  You will need to allocate a new Node.
