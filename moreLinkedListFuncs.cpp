@@ -5,6 +5,7 @@
 
 
 void addIntToEndOfList(LinkedList *list, int value) {
+<<<<<<< HEAD
   assert(list!=NULL);
   Node *p;
 
@@ -21,12 +22,45 @@ void addIntToEndOfList(LinkedList *list, int value) {
   {
 	  list->tail->next = p;
 	  list->tail = p;
+=======
+  assert(list!=NULL); // if list is NULL, we can do nothing.
+
+  Node *p; // temporary pointer
+
+  // TODO:
+  // (1) Allocate a new node.  p will point to it.
+
+  p = new Node;; // THIS IS PLACE-HOLDER LINE OF CODE.  DELETE IT AND REPLACE IT.
+  p->data = value;
+  // (2) Set p's data field to the value passed in
+  p->next = NULL;
+  // (3) Set p's next field to NULL
+
+
+  if (list->head == NULL) {
+    list->head = p;
+    // (4) Make both head and tail of this list point to p
+    list->tail = p;
+    
+  } else {
+
+    // Add p at the end of the list.   
+
+    // (5) The current node at the tail? Make it point to p instead of NULL
+    list->tail->next = p;
+    // (6) Make the tail of the list be p now.
+    list->tail = p;
+>>>>>>> 52bb667017951c3035189828de36b987b1faff1a
   }
 }
 
 void addIntToStartOfList(LinkedList *list, int value) {
   assert(list!=NULL); // if list is NULL, we can do nothing.
+  Node *p = new Node;
+  p->data = value;
+  p->next = NULL;
 
+<<<<<<< HEAD
   Node *p;
   p = new Node;
   p->data = value;
@@ -41,6 +75,15 @@ void addIntToStartOfList(LinkedList *list, int value) {
 	  list->head = p;
 	  //add p to beginning of list
 	  //
+=======
+  if(list->head==NULL)
+	  list->head = p;
+
+  else{
+  	p->next = list->head;
+	list->head = p;
+  }
+>>>>>>> 52bb667017951c3035189828de36b987b1faff1a
   // Add code for this.  
   // HINTS:
   //  You will need to allocate a new Node.
@@ -68,11 +111,24 @@ Node * pointerToMax(LinkedList *list) {
   //  so does not need to do error checking for these conditions.
   assert(list!=NULL);
   assert(list->head != NULL);
+  
+  Node *p = new Node;
+  p = list->head;
+  if(list->head->next==NULL){
+	return p;
+  }
 
+  Node *temp;
+  temp = p->next;
+  while(temp){
+  	if(temp->data > p->data)
+		p = temp;
+	temp = temp->next;
+  }
   // TODO: Insert code here to calculate and return
   //   value of pointer to max element (first one if ties.)
 
-  return NULL; // STUB!  Replace this line with correct code
+  return p; // STUB!  Replace this line with correct code
 }
 
 // list: ptr to a linked list of Node (each with int data, and Node * next)
