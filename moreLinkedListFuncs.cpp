@@ -5,6 +5,26 @@
 
 
 void addIntToEndOfList(LinkedList *list, int value) {
+
+  assert(list!=NULL);
+  Node *p;
+
+  p = new Node;
+  p->data = value;
+  p->next = NULL;
+
+  if (list->head == NULL)
+  {
+	  list->head = p;
+	  list->tail = p;
+  }
+  else
+  {
+	  list->tail->next = p;
+	  list->tail = p;
+  }
+}
+	/*
   assert(list!=NULL); // if list is NULL, we can do nothing.
 
   Node *p; // temporary pointer
@@ -32,9 +52,9 @@ void addIntToEndOfList(LinkedList *list, int value) {
     list->tail->next = p;
     // (6) Make the tail of the list be p now.
     list->tail = p;
+>>>>>>> 52bb667017951c3035189828de36b987b1faff1a
   }
-
-}
+  */
 
 void addIntToStartOfList(LinkedList *list, int value) {
   assert(list!=NULL); // if list is NULL, we can do nothing.
@@ -42,6 +62,22 @@ void addIntToStartOfList(LinkedList *list, int value) {
   p->data = value;
   p->next = NULL;
 
+/*<<<<<<< HEAD
+  Node *p;
+  p = new Node;
+  p->data = value;
+  p->next = list->head;
+  
+  if(list->head == NULL)
+  {
+	  list->head = p;
+	  list->tail = p;
+  }
+  else
+	  list->head = p;
+	  //add p to beginning of list
+	  //
+=======*/
   if(list->head==NULL)
 	  list->head = p;
 
@@ -49,6 +85,7 @@ void addIntToStartOfList(LinkedList *list, int value) {
   	p->next = list->head;
 	list->head = p;
   }
+//>>>>>>> 52bb667017951c3035189828de36b987b1faff1a
   // Add code for this.  
   // HINTS:
   //  You will need to allocate a new Node.
@@ -196,13 +233,21 @@ int smallestValue(LinkedList *list) {
 int sum(LinkedList * list) {
   // Code may assume that these assertions are true;
   //  so does not need to do error checking for these conditions.
-
+  int sum = 0;
   assert(list!=NULL);
 
+  Node *p;
+  p = list->head;
+
+  while (p != NULL)
+  {
+	sum += p->data;
+	p = p->next;
+  }
   // TODO: Insert code here to calculate and return
   //   sum of all values in list (0 if there are none).
 
-  return -42; // STUB!  Replace this line with correct code
+  return sum; // STUB!  Replace this line with correct code
 
 }
 
